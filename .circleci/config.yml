@@ -29,7 +29,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Say world"
+          name: "printing my name"
           command: echo $myName
 
 # Invoke jobs via workflows
