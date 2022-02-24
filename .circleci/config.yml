@@ -9,8 +9,6 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
       - image: circleci/node:13.8.0
-    environment:
-        myName: Rutherford
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -19,11 +17,13 @@ jobs:
           name: "Say hello"
           command: echo Hello
 
-  print-world:
+  print-my-name:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
       - image: circleci/node:13.8.0
+    environment:
+        myName: Rutherford
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -38,6 +38,6 @@ workflows:
   welcome:
     jobs:
       - print-hello
-      - print-world:
+      - print-my-name:
           requires: 
             - print-hello
